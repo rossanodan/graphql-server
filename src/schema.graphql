@@ -5,9 +5,17 @@ type User {
   age: Int
 }
 
+type Group {
+  id: ID!
+  name: String!
+  members: [User!]!
+}
+
 type Query {
-  users: [User!]!
-  user(id: ID!): User!
+  getUsers: [User!]!
+  getUser(id: ID!): User!
+  getGroups: [Group!]!
+  getGroup(id: ID!): Group!
 }
 
 type Mutation {

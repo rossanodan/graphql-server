@@ -1,13 +1,19 @@
-import { users } from './db';
+import { users, groups } from './db';
 
 const resolvers = {
   Query: {
-    user: (parent, { id }, context, info) => {
+    getUser: (parent, { id }, context, info) => {
       return users.find(user => user.id == id);
     },
-    users: (parent, args, context, info) => {
+    getUsers: (parent, args, context, info) => {
       return users;
-    }
+    },
+    getGroup: (parent, { id }, context, info) => {
+      return groups.find(group => group.id == id);
+    },
+    getGroups: (parent, args, context, info) => {
+      return groups;
+    },
   },
   Mutation: {
     createUser: (parent, {id, name, email, age}, context, info) => {
